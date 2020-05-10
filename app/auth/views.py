@@ -1,5 +1,4 @@
 from flask import render_template, redirect, url_for, request, flash
-
 from app import db
 from app.models import User
 from . import auth

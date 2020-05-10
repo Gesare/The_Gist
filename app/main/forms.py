@@ -4,17 +4,13 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import Email, Length, Required, EqualTo
 from wtforms import ValidationError, PasswordField
 from wtforms import StringField, SubmitField, TextAreaField
-
 from app.models import User, Subscription
 
 
 class UpdateAccountForm(FlaskForm):
-    username = StringField('Username', validators=[Length(min=2, max=20)])
-
+    username = StringField('Username', validators=[Length(min=2, max=10)])
     email = StringField('Your Email Address', validators=[Email()])
-
     picture = FileField('Change Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
-
     submit = SubmitField('Update information')
 
     def validate_username(self, username):
