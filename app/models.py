@@ -42,7 +42,7 @@ class Post(db.Model):
     title = db.Column(db.String(255), unique=True, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(15), nullable=False, default='Keith Mzaza')
+    author = db.Column(db.String(15), nullable=False, default='Ayienda Ombati')
     comment = db.relationship('Comments', backref='post', lazy='dynamic')
 
     def __repr__(self):

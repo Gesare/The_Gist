@@ -8,8 +8,8 @@ from app.models import User, Subscription
 
 
 class UpdateAccountForm(FlaskForm):
-    username = StringField('Username', validators=[Length(min=2, max=10)])
-    email = StringField('Your Email Address', validators=[Email()])
+    username = StringField('Username', validators=[Length(min=2, max=20)])
+    email = StringField('Enter Email Address', validators=[Email()])
     picture = FileField('Change Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update information')
 
@@ -43,5 +43,5 @@ class SubscribeForm(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-    comment = StringField('Comment: ', validators=[Required()])
+    comment = StringField('Add a comment: ', validators=[Required()])
     submit = SubmitField('Submit')

@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-
 <!-- Navbar block -->
 {% block navbar %}
-<div class ="navbar transparent navbar-inverse navbar-expand-md fixed-top" role="navigation" >
+<div class ="navbar transparent navbar-inverse navbar-expand-md fixed-top" role="navigation"style="background-color : #1E5162"  >
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,9 +26,9 @@
                 {% endif %}
                 {% if current_user.is_authenticated %}
                 <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-                <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
                 {% else %}
-                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                <li><a href="{{url_for('auth.login')}}">Login</a></li>
                 <li><a href="{{url_for('auth.register')}}">Register</a></li>
                 {%endif%}
             </ul>
