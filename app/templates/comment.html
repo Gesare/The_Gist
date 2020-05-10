@@ -5,32 +5,29 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 
-
-<body>
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            <article class="media content-section">
-                <div class="media-body">
-                    <div class="article-metadata">
-                        <h2 class="mr-2" >{{comment.comment}}</h2>
-                        <h3>{{comment.user.username}}</h3>
-                        {%if current_user.username == "Ayienda Ombati" %}
-                        <br>
-                        <div>
-                            <button><a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">Delete</a></button>
+<body style="background-color: #5B85AA;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <article class="media content-section">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <h2 class="mr-2" >{{comment.comment}}</h2>
+                            <h3>{{comment.user.username}}</h3>
+                            {%if current_user.username == "Ayienda Ombati" %}
+                            <br>
+                            <div>
+                                <button><a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">Delete</a></button>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
-                </div>
-            </article>
+                </article>
+
+            </div>
 
         </div>
-
     </div>
-</div>
-{% endblock %}
-
-
 </body>
+{% endblock %}
