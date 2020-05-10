@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
+<body>
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <h2 class="mr-2" >{{comment.comment}}</h2>
+                        <h3>{{comment.user.username}}</h3>
+                        {%if current_user.username == "Keith Mzaza" %}
+                        <br>
+                        <div>
+                            <button><a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">Delete</a></button>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+</body>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+<!-- Content block -->
+<body>
+{% block content %}
+
+<title> {{ title }} </title>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            {%for post in posts.items%}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <p class="mr-2">{{ post.author }}</p>
+                        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
+                    </div>
+                    <h2><a class="article-title" href="{{url_for('main.post', post_id=post.id)}}">{{ post.title }}</a></h2>
+                    <p class="article-content">{{ post.content }}</p>
+                </div>
+            </article>
+
+            {% endfor%}
+
+            {%for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num%}
+            {% if posts.page == page_num %}
+            <a class="btn btn-primary mb-4" href="{{url_for('main.index', page=page_num) }}">{{page_num}}</a>
+            {% else %}
+            <a class="btn btn-default mb-4" href="{{url_for('main.index', page=page_num) }}">{{page_num}}</a>
+            {% endif %}
+            {% else %}
+            ...
+            {% endif %}
+            {% endfor%}
+        </div>
+        <div class="col-md-4">
+            <div class="content-section">
+                <h3>Subscribe</h3>
+                <p class='text-muted'>Get an email every time something is posted
+                    {{ wtf.quick_form(form) }}
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+
+</body>

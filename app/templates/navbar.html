@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+<!-- Navbar block -->
+{% block navbar %}
+<div class ="navbar transparent navbar-inverse navbar-expand-md fixed-top" role="navigation" >
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MZAZA BLOG</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+             <ul class="nav navbar-nav">
+                <li><a href="/about">About</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.username == 'Keith Mzaza' %}
+                <li><a href="{{url_for('main.new_post')}}">Post</a> </li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+                <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                <li><a href="{{url_for('auth.register')}}">Register</a></li>
+                {%endif%}
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
