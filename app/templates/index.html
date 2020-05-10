@@ -25,6 +25,8 @@
                     </div>
                     <h2><a class="article-title" href="{{url_for('main.post', post_id=post.id)}}">{{ post.title }}</a></h2>
                     <p class="article-content">{{ post.content }}</p>
+                     <a class="btn btn-primary m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a>
+                    <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#deleteModal"> Delete</button>
                 </div>
             </article>
 

@@ -17,22 +17,19 @@
                     <div class="article-metadata">
                         <a class="mr-2" href="#">{{ post.author }}</a>
                         <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
-
                         {%if current_user.username == "Ayienda Ombati" %}
                         <br>
                         <div>
-                            <a class="btn btn-primary m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a>
-                            <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#deleteModal"> Delete</button>
+                            <h2 class="article-title">{{ post.title }}</h2>
+                            <p class="article-content">{{ post.content }}</p>
                         </div>
                         {% endif %}
                     </div>
-                    <h2 class="article-title">{{ post.title }}</h2>
-                    <p class="article-content">{{ post.content }}</p>
+                    <a class="btn btn-primary m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a>
+                    <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#deleteModal"> Delete</button>
                 </div>
             </article>
-
         </div>
-
     </div>
     <div class="row container">
         {{ wtf.quick_form(comment_form) }}
