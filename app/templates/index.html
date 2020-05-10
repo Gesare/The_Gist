@@ -17,17 +17,15 @@
     <div class="row">
         <div class="col-md-8">
             {%for post in posts.items%}
-            <article class="media content-section">
-                <div class="media-body">
+            <div class="thumbnail text-center">
                     <div class="article-metadata">
                         <p class="mr-2">{{ post.author }}</p>
                         <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
                     </div>
-                    <h2><a class="article-title" href="{{url_for('main.post', post_id=post.id)}}">{{ post.title }}</a></h2>
+                    <h4><a class="article-title" href="{{url_for('main.post', post_id=post.id)}}">{{ post.title }}</a></h4>
                     <p class="article-content">{{ post.content }}</p>
-                    <a class="btn btn-info m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a> 
-                </div>
-            </article>
+                    <a class="btn btn-info m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a>
+            </div>
 
             {% endfor%}
 
