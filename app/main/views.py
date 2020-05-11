@@ -8,7 +8,7 @@ from app.main.forms import UpdateAccountForm, PostForm, SubscribeForm, CommentFo
 from app.models import User, Post, Subscription, Comments
 from manage import app
 from . import main
-
+from ..models import User
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -66,7 +66,7 @@ def profile():
 @main.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
-    if current_user.username != 'Ayienda Ombati':
+    if current_user.username != username:
         abort(403)
 
     form = PostForm()
@@ -100,7 +100,7 @@ def post(post_id):
 @login_required
 def update_post(post_id):
     post = Post.query.get_or_404(post_id)
-    if current_user.username != 'Ayienda Ombati':
+    if current_user.username != username:
         abort(403)
     form = PostForm()
     if form.validate_on_submit():
@@ -118,7 +118,7 @@ def update_post(post_id):
 @login_required
 def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
-    if current_user.username != 'Ayienda Ombati':
+    if current_user.username != username:
         abort(403)
     db.session.delete(post)
     db.session.commit()
@@ -135,7 +135,7 @@ def comment(comment_id):
 @login_required
 def delete_comment(comment_id):
     comment = Comments.query.get_or_404(comment_id)
-    if current_user.username != 'Ayienda Ombati':
+    if current_user.username != username:
         abort(403)
     db.session.delete(comment)
     db.session.commit()
