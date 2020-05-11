@@ -38,13 +38,13 @@
 
 
 ## User Stories
-  * A user can  like to view the blog posts on the site
-  * A user can like to comment on blog posts
+  * A user can  like to view the blog posts on the site.
+  * A user can like to comment on blog posts.
   * A user can like to view the most recent posts.
   * A user can like to an email alert when a new post is made by joining a subscription.
-  * A user can like to delete comments that I find insulting or degrading.
-  * A user can like to sign in to the blog.
-  * A user can like to sign in to the blog.
+  * A writer can like to delete comments that I find insulting or degrading.
+  * A writer can like to sign in to the blog.
+  * A writer can like  to update or delete blogs I have created.
 
 
 
