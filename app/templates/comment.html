@@ -15,7 +15,7 @@
                         <div class="article-metadata">
                             <h2 class="mr-2" >{{comment.comment}}</h2>
                             <h3>{{comment.user.username}}</h3>
-                            {%if current_user.username == "Ayienda Ombati" %}
+                            {%if current_user.username %}
                             <br>
                             <div>
                                 <button><a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">Delete</a></button>
