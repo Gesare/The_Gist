@@ -24,7 +24,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                {% if current_user.username == 'Ayienda Ombati' %}
+                {% if current_user.username == current_user.username %}
                 <li><a href="{{url_for('main.new_post')}}">Post</a> </li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
