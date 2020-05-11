@@ -14,11 +14,37 @@
 <title> {{ title }} </title>
 
 <main role="main" class="container-fluid">
-
+    <div class="container">
+      <h2 style="text-align: center">THE GIST WITH GESARE.</h2>
+      <br>
+      <div class="tab-content" >
+        <div id="head" class="container tab-pane active"style="text-align: center"><br>
+          <h4>Hi,Dear blog lovers</h4>
+          <h4>Express your ideas and opinions on the blog.</h4>
+          <h4>This is a safe place to write and read personal blogs</h4>
+          <h4>We are lucky to have you on our website.</h4>
+          <h4>Enjoy!</h4>
+        </div>
+      </div>
+      <hr>
+        <div class="tab-content">
+           <div id="head" class="container tab-pane active " style="text-align: center"><br>
+                <h3>What we can do for you;</h3>
+                <h4>You can view the blog post on this site Down below.</h4>
+                <h4>You can comment when you are the manager.</h4>
+                <h4>You can Subscribe down below to get the latest version of the </h4>
+                <h4>You will be able to receive a welcoming email once I sign up.</h4>
+                <h4>You will be able to comment on the different pitches and leave feedback.</h4>
+                <h4>You will be able to submit a pitch in any category.</h4>
+                <h4>You will be able view the different categories.</h4>
+           </div>
+        </div>
+    </div>
     <div class="row"> 
         <div class="col-md-2"></div>
         <div class="col-md-8">
             {%for post in posts.items%}
+            <hr>
             <div class="thumbnail text-center">
                     <div class="article-metadata">
                         <p class="mr-2">{{ post.author }}</p>
@@ -26,7 +52,6 @@
                     </div>
                     <h4><a class="article-title" href="{{url_for('main.post', post_id=post.id)}}">{{ post.title }}</a></h4>
                     <p class="article-content">{{ post.content }}</p>
-                    <a class="btn btn-info m-1" href="{{url_for('main.update_post', post_id=post.id)}}">Update the post</a>
             </div>
 
             {% endfor%}
