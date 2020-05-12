@@ -6,7 +6,6 @@ from app import db
 from app.email import mail_message
 from app.main.forms import UpdateAccountForm, PostForm, SubscribeForm, CommentForm
 from app.models import User, Post, Subscription, Comments
-from manage import app
 from . import main
 from ..models import User
 
